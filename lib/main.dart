@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import 'package:camera/camera.dart';
-=======
 import 'package:firebase_core/firebase_core.dart';
->>>>>>> 9f61eb8d9937527a8a54ff6c020eea641e27eb1d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -24,31 +21,18 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-
-
   const MyApp({super.key});
 
   @override
-<<<<<<< HEAD
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const IndexPage(),
-      // home: const Profile(),
-=======
   Widget build(BuildContext context) => ChangeNotifierProvider(
       create: (context) => GoogleSignInProvider(),
-      child:FutureBuilder(
+      child: FutureBuilder(
         // Initialize FlutterFire
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
           // Check for errors
           if (snapshot.hasError) {
-            return  Center(child: Text('Something went wrong'));
+            return Center(child: Text('Something went wrong'));
           }
 
           // Once complete, show your application
@@ -64,10 +48,9 @@ class MyApp extends StatelessWidget {
           }
 
           // Otherwise, show something whilst waiting for initialization to complete
-          return Center(child: CircularProgressIndicator(),);
+          return Center(
+            child: CircularProgressIndicator(),
+          );
         },
-      )
->>>>>>> 9f61eb8d9937527a8a54ff6c020eea641e27eb1d
-    );
-  }
-
+      ));
+}
