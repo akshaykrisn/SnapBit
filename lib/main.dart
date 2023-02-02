@@ -1,4 +1,6 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:snapbit/screens/index.dart';
@@ -7,6 +9,7 @@ Future<void> main() async {
   await Hive.initFlutter();
 
   // open a box
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.openBox("Habit_Database");
   runApp(const MyApp());
 }
@@ -16,13 +19,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: const IndexPage(),
+      // home: const Profile(),
     );
   }
 }

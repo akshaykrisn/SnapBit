@@ -1,5 +1,8 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get.dart';
+import 'package:snapbit/screens/take_photo.dart';
 
 class HabitTile extends StatelessWidget {
   final String habitName;
@@ -69,7 +72,12 @@ class HabitTile extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(Icons.camera_alt, size: 25, color: Colors.white)
+              GestureDetector(
+                onTap: () {
+                  Get.to(CameraScreen());
+                },
+                child: Icon(Icons.camera_alt, size: 25, color: Colors.white),
+              )
             ],
           ),
         ),
