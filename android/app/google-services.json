@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622635168831",
+    "project_id": "snapbit-be18d",
+    "storage_bucket": "snapbit-be18d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622635168831:android:5fad08a8402b61e1f5748a",
+        "android_client_info": {
+          "package_name": "com.example.snapbit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622635168831-hn874dfi09gp7e383djf047s7ocqgl9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQylTrdFcot-6R4s38zzCcG9ySLuxlOaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622635168831-hn874dfi09gp7e383djf047s7ocqgl9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
