@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:snapbit/components%20copy/habit_tile.dart';
-import 'package:snapbit/components%20copy/month_summary.dart';
-import 'package:snapbit/components%20copy/my_alert_box.dart';
-import 'package:snapbit/components%20copy/my_fab.dart';
+import 'package:snapbit/components/habit_tile.dart';
+import 'package:snapbit/components/month_summary.dart';
+import 'package:snapbit/components/my_alert_box.dart';
+import 'package:snapbit/components/my_fab.dart';
 import 'package:snapbit/data/habit_database.dart';
 
 class HomePage extends StatefulWidget {
