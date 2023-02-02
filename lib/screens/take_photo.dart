@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:camera_camera/camera_camera.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -12,6 +13,16 @@ class CameraScreen extends StatefulWidget {
 }
 
 class _CameraScreenState extends State<CameraScreen> {
+  final storage = FirebaseStorage.instance;
+  final storageRef = FirebaseStorage.instance.ref();
+  late final imagesRef;
+  @override
+  void initState() {
+    // TODO: implement initState
+    imagesRef = storageRef.child("images");
+    super.initState();
+  }
+
   final photos = <File>[];
   void openCamera() {
     Navigator.push(
@@ -26,10 +37,26 @@ class _CameraScreenState extends State<CameraScreen> {
                 )));
   }
 
+  Future<void> uploadFile(File filesd) async {
+    String filePath = filesd.toString();
+    File file = File(filePath);
+
+    try {
+      await imagesRef.putFile(file);
+    } catch (e) {
+      // ...
+      print(e);
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-          CameraCamera(onFile: (file) => {print(file), Navigator.pop(context)}),
+      body: CameraCamera(onFile: (file) {
+        print(file);
+        uploadFile(file);
+        Navigator.pop(context);
+      }),
+
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {
       //     Navigator.push(
