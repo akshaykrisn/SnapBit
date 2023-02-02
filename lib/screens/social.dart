@@ -29,57 +29,61 @@ class _SocialPageState extends State<SocialPage> {
               IconButton(onPressed: (){}, icon: Icon(FontAwesome.user,color: Colors.white,)),
             ],
           ),
-          Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              width: double.infinity,
-              height: 470,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: CircleAvatar(
-                      radius: 20,
-                    ),
-                    title: Text('Akshay Krishna'),
-                    subtitle: Text(
-                      '5 min ago'
-                    ),
+          ListView.builder(
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(10)
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    width: double.infinity,
-                    height: 330,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black45,
-                          offset: Offset(0,5),
-                          blurRadius: 8.0
-                        )
-                      ],
-                      image: DecorationImage(
-                        image: AssetImage('assets/1.jpeg'),
-                        fit: BoxFit.fitWidth
-                      )
-                    ),
-                  ),
-                  Row(
+                  width: double.infinity,
+                  height: 470,
+                  child: Column(
                     children: [
-                      IconButton(onPressed: (){}, icon: Icon(AntDesign.heart,size: 30,)),
-                      IconButton(onPressed: (){}, icon: Icon(FontAwesome5Solid.smile,size: 30,)),
-                      IconButton(onPressed: (){}, icon: Icon(FontAwesome.comment,size: 30,)),
+                      ListTile(
+                        leading: CircleAvatar(
+                          radius: 20,
+                        ),
+                        title: Text('Akshay Krishna'),
+                        subtitle: Text(
+                            '5 min ago'
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(10),
+                        width: double.infinity,
+                        height: 330,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black45,
+                                  offset: Offset(0,5),
+                                  blurRadius: 8.0
+                              )
+                            ],
+                            image: DecorationImage(
+                                image: AssetImage('assets/1.jpeg'),
+                                fit: BoxFit.fitWidth
+                            )
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          IconButton(onPressed: (){}, icon: Icon(AntDesign.heart,size: 30,)),
+                          IconButton(onPressed: (){}, icon: Icon(FontAwesome5Solid.smile,size: 30,)),
+                          IconButton(onPressed: (){}, icon: Icon(FontAwesome.comment,size: 30,)),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            ),
-          )
+                  ),
+                );
+              }),
+
         ],
       )
     );
   }
 }
+

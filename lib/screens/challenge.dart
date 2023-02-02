@@ -15,11 +15,14 @@ class _ChallengePageState extends State<ChallengePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'Challenge',
-          style: optionStyle,
-        ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              // IconButton(onPressed:(){}, icon: Icon(FontAwesome.l))
+            ],
+          )
+        ],
       ),
     );
   }
