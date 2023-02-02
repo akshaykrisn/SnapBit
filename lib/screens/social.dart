@@ -12,7 +12,7 @@ class SocialPage extends StatefulWidget {
 
 class _SocialPageState extends State<SocialPage> {
   static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.w600,color: Colors.white);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color: Colors.white);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,8 @@ class _SocialPageState extends State<SocialPage> {
           icon: LineIcon.bell(),
         ),
         actions: [
-          CircleAvatar(child: IconButton(onPressed: (){}, icon: Icon(FontAwesome.user)))
+          CircleAvatar(
+              child: IconButton(onPressed: () {}, icon: Icon(FontAwesome.user)))
         ],
       ),
       body: Center(
@@ -31,14 +32,6 @@ class _SocialPageState extends State<SocialPage> {
           'Explore',
           style: optionStyle,
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Entypo.home),label:'Home'),
-          BottomNavigationBarItem(icon: Icon(Ionicons.compass),label: 'Social'),
-          BottomNavigationBarItem(icon: Icon(MaterialCommunityIcons.bullseye_arrow),label: 'Challenge'),
-        ],
-        
       ),
     );
   }
