@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:snapbit/components/google_sign_in.dart';
+import 'package:snapbit/screens/index.dart';
 
 import 'home.dart';
 
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user == null) {
         print('User is currently signed out!');
       } else {
-        print('User is signed in!');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const IndexPage()));
       }
     });
 
