@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:snapbit/screens/comments.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({super.key});
@@ -61,7 +62,7 @@ class PostCard extends StatelessWidget {
                     size: 30,
                   )),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(context,  MaterialPageRoute(builder: (context) => const CommentsScreen()));},
                   icon: Icon(
                     FontAwesome.comment,
                     color: Colors.white,

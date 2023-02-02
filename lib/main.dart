@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
 
           // Once complete, show your application
           else if (snapshot.connectionState == ConnectionState.done) {
-            return MaterialApp(
-              title: 'Flutter Demo',
+            return GetMaterialApp(
+
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 primarySwatch: Colors.blue,
