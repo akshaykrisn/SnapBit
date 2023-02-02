@@ -39,9 +39,8 @@ class MyApp extends StatelessWidget {
           else if (snapshot.connectionState == ConnectionState.done) {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-              ),
+              theme:
+                  ThemeData(primarySwatch: Colors.blue, fontFamily: 'Urbanist'),
               home: LoginScreen(),
             );
           }

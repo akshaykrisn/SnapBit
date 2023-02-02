@@ -16,16 +16,17 @@ class MonthlySummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 16, bottom: 16, left: 16, right: 16),
-      child: HeatMap(
-        startDate: DateTime.now().add(Duration(days: -86)),
-        endDate: DateTime.now().add(Duration(days: 48)),
+      child: HeatMapCalendar(
+        // startDate: DateTime.now().add(Duration(days: -86)),
+        // endDate: DateTime.now().add(Duration(days: 48)),
         datasets: datasets,
+        flexible: true,
         colorMode: ColorMode.color,
         defaultColor: Color.fromARGB(255, 48, 47, 47),
         textColor: Colors.white,
         showColorTip: false,
-        showText: true,
-        scrollable: true,
+        // showText: true,
+        // scrollable: true,
         size: 30,
         colorsets: const {
           1: Color.fromARGB(19, 2, 20, 179),

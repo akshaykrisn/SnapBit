@@ -23,30 +23,34 @@ class _SocialPageState extends State<SocialPage> {
         backgroundColor: Colors.black,
         body: ListView(
           children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
-            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      FontAwesome.bell,
-                      color: Colors.white,
-                    )),
-                Text(
-                  'Snapbit',
-                  style: TextStyle(color: Colors.white),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+                  child: Image.asset(
+                    'assets/icon.png',
+                    height: 50,
+                    width: 50,
+                  ),
                 ),
-                IconButton(
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+                  child: RawMaterialButton(
                     onPressed: () {
                       Get.to(Profile());
                     },
-                    icon: Icon(
-                      FontAwesome.user,
-                      color: Colors.white,
-                    )),
+                    elevation: 2.0,
+                    fillColor: Colors.white,
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.blue,
+                      size: 20.0,
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    shape: CircleBorder(),
+                  ),
+                )
               ],
             ),
             ListView.builder(
@@ -57,9 +61,8 @@ class _SocialPageState extends State<SocialPage> {
                 return Container(
                   child: Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: PostCard(),
+                      PostCard(
+                        postNo: index + 1,
                       ),
                       SizedBox(
                         height: 16,

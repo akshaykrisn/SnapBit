@@ -8,138 +8,173 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:snapbit/screens/comments.dart';
 import 'package:lottie/lottie.dart';
 
-class PostCard extends StatelessWidget {
-  const PostCard({super.key});
+class PostCard extends StatefulWidget {
+  final postNo;
+  const PostCard({
+    super.key,
+    required this.postNo,
+  });
 
   @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  bool reacted = false;
+  int vals = 0;
+  final reactionMedia = [
+    Lottie.asset(
+      'assets/lottie/heart.json',
+      width: 40.0,
+      height: 40.0,
+    ),
+    Lottie.asset(
+      'assets/lottie/care.json',
+      width: 40.0,
+      height: 40.0,
+    ),
+    Lottie.asset(
+      'assets/lottie/lol.json',
+      width: 40.0,
+      height: 40.0,
+    ),
+    Lottie.asset(
+      'assets/lottie/sad.json',
+      width: 40.0,
+      height: 40.0,
+    ),
+    Lottie.asset(
+      'assets/lottie/angry.json',
+      width: 40.0,
+      height: 40.0,
+    )
+  ];
+  final _reactions = [
+    FeedReaction(
+      id: 0,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+        ),
+        child: Text(
+          "Love",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
+      reaction: Lottie.asset(
+        'assets/lottie/heart.json',
+        width: 40.0,
+        height: 40.0,
+      ),
+    ),
+    FeedReaction(
+      id: 1,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Care",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
+      reaction: Lottie.asset(
+        'assets/lottie/care.json',
+        width: 40.0,
+        height: 40.0,
+      ),
+    ),
+    FeedReaction(
+      id: 2,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Lol",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
+      reaction: Lottie.asset(
+        'assets/lottie/lol.json',
+        width: 40.0,
+        height: 40.0,
+      ),
+    ),
+    FeedReaction(
+      id: 3,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Sad",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
+      reaction: Lottie.asset(
+        'assets/lottie/sad.json',
+        width: 40.0,
+        height: 40.0,
+      ),
+    ),
+    FeedReaction(
+      id: 4,
+      header: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.black.withOpacity(0.6),
+        ),
+        padding: EdgeInsets.only(
+          left: 7.0,
+          right: 7.0,
+          top: 2.0,
+          bottom: 2.0,
+        ),
+        margin: EdgeInsets.only(bottom: 8.0),
+        child: Text(
+          "Angry",
+          style: TextStyle(fontSize: 8.0, color: Colors.white),
+        ),
+      ),
+      reaction: Lottie.asset(
+        'assets/lottie/angry.json',
+        width: 40.0,
+        height: 40.0,
+      ),
+    ),
+  ];
+  @override
   Widget build(BuildContext context) {
-    final _reactions = [
-      FeedReaction(
-        id: 0,
-        header: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.black.withOpacity(0.6),
-          ),
-          padding: EdgeInsets.only(
-            left: 7.0,
-            right: 7.0,
-            top: 2.0,
-            bottom: 2.0,
-          ),
-          margin: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Love",
-            style: TextStyle(fontSize: 8.0, color: Colors.white),
-          ),
-        ),
-        reaction: Lottie.asset(
-          'assets/lottie/heart.json',
-          width: 40.0,
-          height: 40.0,
-        ),
-      ),
-      FeedReaction(
-        id: 1,
-        header: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.black.withOpacity(0.6),
-          ),
-          padding: EdgeInsets.only(
-            left: 7.0,
-            right: 7.0,
-            top: 2.0,
-            bottom: 2.0,
-          ),
-          margin: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Care",
-            style: TextStyle(fontSize: 8.0, color: Colors.white),
-          ),
-        ),
-        reaction: Lottie.asset(
-          'assets/lottie/care.json',
-          width: 40.0,
-          height: 40.0,
-        ),
-      ),
-      FeedReaction(
-        id: 2,
-        header: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.black.withOpacity(0.6),
-          ),
-          padding: EdgeInsets.only(
-            left: 7.0,
-            right: 7.0,
-            top: 2.0,
-            bottom: 2.0,
-          ),
-          margin: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Lol",
-            style: TextStyle(fontSize: 8.0, color: Colors.white),
-          ),
-        ),
-        reaction: Lottie.asset(
-          'assets/lottie/lol.json',
-          width: 40.0,
-          height: 40.0,
-        ),
-      ),
-      FeedReaction(
-        id: 3,
-        header: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.black.withOpacity(0.6),
-          ),
-          padding: EdgeInsets.only(
-            left: 7.0,
-            right: 7.0,
-            top: 2.0,
-            bottom: 2.0,
-          ),
-          margin: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Sad",
-            style: TextStyle(fontSize: 8.0, color: Colors.white),
-          ),
-        ),
-        reaction: Lottie.asset(
-          'assets/lottie/sad.json',
-          width: 40.0,
-          height: 40.0,
-        ),
-      ),
-      FeedReaction(
-        id: 4,
-        header: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.black.withOpacity(0.6),
-          ),
-          padding: EdgeInsets.only(
-            left: 7.0,
-            right: 7.0,
-            top: 2.0,
-            bottom: 2.0,
-          ),
-          margin: EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            "Angry",
-            style: TextStyle(fontSize: 8.0, color: Colors.white),
-          ),
-        ),
-        reaction: Lottie.asset(
-          'assets/lottie/angry.json',
-          width: 40.0,
-          height: 40.0,
-        ),
-      ),
-    ];
     return Container(
       decoration: BoxDecoration(
           color: Colors.black, borderRadius: BorderRadius.circular(10)),
@@ -152,7 +187,7 @@ class PostCard extends StatelessWidget {
               radius: 20,
             ),
             title: Text(
-              'Akshay Krishna',
+              'Atharva',
               style: TextStyle(color: Colors.white),
             ),
             subtitle: Text(
@@ -173,31 +208,21 @@ class PostCard extends StatelessWidget {
                       blurRadius: 8.0)
                 ],
                 image: DecorationImage(
-                    image: AssetImage('assets/1.jpeg'), fit: BoxFit.fitWidth)),
+                    image: AssetImage('assets/${widget.postNo}.jpeg'),
+                    fit: BoxFit.fitWidth)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CommentsScreen()));
+                  },
                   icon: Icon(
-
-                    AntDesign.heart,
-                    color: Colors.white,
-                    size: 30,
-                  )),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    FontAwesome5Solid.smile,
-                    color: Colors.white,
-                    size: 30,
-                  )),
-              IconButton(
-                  onPressed: () {Navigator.push(context,  MaterialPageRoute(builder: (context) => const CommentsScreen()));},
-                  icon: Icon(
-
-                    FontAwesome.comment,
+                    Icons.comment,
                     color: Colors.white,
                     size: 30,
                   )),
@@ -207,15 +232,22 @@ class PostCard extends StatelessWidget {
                 dragStart: 100.0,
                 onReactionSelected: (val) {
                   print(val.id);
+
+                  setState(() {
+                    vals = val.id;
+                    reacted = true;
+                  });
                 },
                 onPressed: () {
                   print("Pressed");
                 },
-                prefix: Image.asset(
-                  'assets/emojies/none.png',
-                  width: 24.0,
-                  height: 24.0,
-                ),
+                prefix: (!reacted)
+                    ? Image.asset(
+                        'assets/emojies/none.png',
+                        width: 24.0,
+                        height: 24.0,
+                      )
+                    : reactionMedia[vals],
                 suffix: Text("Like"),
                 childAnchor: Alignment.topRight,
                 portalAnchor: Alignment.bottomRight,
@@ -227,3 +259,7 @@ class PostCard extends StatelessWidget {
     );
   }
 }
+
+// class PostCard extends StatelessWidget {
+ 
+// }

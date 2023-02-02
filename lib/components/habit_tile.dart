@@ -46,7 +46,7 @@ class HabitTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: (habitCompleted)
                 ? Color.fromARGB(255, 0, 107, 27)
@@ -68,7 +68,8 @@ class HabitTile extends StatelessWidget {
                   Text(
                     habitName,
                     style: TextStyle(
-                        color: (habitCompleted) ? Colors.white : Colors.black),
+                        color: (habitCompleted) ? Colors.white : Colors.black,
+                        fontSize: 16),
                   ),
                 ],
               ),

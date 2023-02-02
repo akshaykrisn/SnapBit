@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:snapbit/components/habit_tile.dart';
 import 'package:snapbit/components/month_summary.dart';
 import 'package:snapbit/components/my_alert_box.dart';
-import 'package:snapbit/components/my_fab.dart';
 import 'package:snapbit/data/habit_database.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   HabitDatabase db = HabitDatabase();
   final _myBox = Hive.box("Habit_Database");
-
+  final user = FirebaseAuth.instance.currentUser;
+  String? name;
   @override
   void initState() {
     if (_myBox.get("CURRENT_HABIT_LIST") == null) {
@@ -25,7 +26,12 @@ class _HomePageState extends State<HomePage> {
       db.loadData();
     }
     db.updateDatabase();
-
+    if (user != null) {
+      name = user?.displayName;
+      print(
+        "THE NAME IS $name",
+      );
+    }
     super.initState();
   }
 
@@ -100,25 +106,57 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      floatingActionButton: MyFloatingActionButton(onPressed: createNewHabit),
       body: ListView(
         children: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(16, 32, 16, 0),
-            child: Text("Welcome Akshay",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                )),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
-            child: Text("Here's an overview of your daily habit rituals...",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+                child: Image.asset(
+                  'assets/icon.png',
+                  height: 50,
+                  width: 50,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 32, 16, 0),
+                    child: Text("Welcome $name",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        )),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 4, 0, 0),
+                    child: Text("Map your habits",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 32, 0, 0),
+                child: RawMaterialButton(
+                  onPressed: createNewHabit,
+                  elevation: 2.0,
+                  fillColor: Colors.blue,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 24.0,
+                  ),
+                  padding: EdgeInsets.all(15.0),
+                  shape: CircleBorder(),
+                ),
+              )
+            ],
           ),
           MonthlySummary(
             datasets: db.heatMapDataSet,
