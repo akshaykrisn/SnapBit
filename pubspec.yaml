@@ -50,6 +50,7 @@ dependencies:
   firebase_auth: ^4.2.5
   google_sign_in: ^5.4.4
   provider: ^6.0.5
+  cloud_firestore: ^4.3.1
   firebase_storage: ^11.0.10
   flutter_reaction_button: ^2.0.1+2
   flutter_feed_reaction: ^0.0.6

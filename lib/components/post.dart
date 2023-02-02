@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_feed_reaction/flutter_feed_reaction.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:snapbit/screens/comments.dart';
 import 'package:lottie/lottie.dart';
 
 class PostCard extends StatelessWidget {
@@ -180,6 +181,22 @@ class PostCard extends StatelessWidget {
               IconButton(
                   onPressed: () {},
                   icon: Icon(
+
+                    AntDesign.heart,
+                    color: Colors.white,
+                    size: 30,
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    FontAwesome5Solid.smile,
+                    color: Colors.white,
+                    size: 30,
+                  )),
+              IconButton(
+                  onPressed: () {Navigator.push(context,  MaterialPageRoute(builder: (context) => const CommentsScreen()));},
+                  icon: Icon(
+
                     FontAwesome.comment,
                     color: Colors.white,
                     size: 30,
