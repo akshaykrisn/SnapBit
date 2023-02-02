@@ -37,6 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
+  flutter_heatmap_calendar: ^1.0.5
+  flutter_slidable: ^2.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  flutter_vector_icons: ^2.0.0
 
 dev_dependencies:
   flutter_test:
