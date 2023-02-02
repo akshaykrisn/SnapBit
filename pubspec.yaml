@@ -45,12 +45,15 @@ dependencies:
   camera: ^0.10.3
   get: ^4.6.5
   camera_camera: ^3.0.0-dev
-  percent_indicator: ^4.2.2
   lottie: ^2.2.0
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
   google_sign_in: ^5.4.4
   provider: ^6.0.5
+  firebase_storage: ^11.0.10
+  flutter_reaction_button: ^2.0.1+2
+  flutter_feed_reaction: ^0.0.6
+  percent_indicator: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +79,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - images/
     - assets/1.jpeg
     - images/avatar.png
     - images/tropy.png
@@ -85,6 +89,8 @@ flutter:
     - images/target.png
     - assets/
     - assets/animations/
+    - assets/emojies/
+    - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
